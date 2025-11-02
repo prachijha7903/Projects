@@ -1,0 +1,82 @@
+#include <iostream>
+using namespace std;
+
+class CurrencyConverter {
+public:
+    virtual void convert(double amount) = 0;  // pure virtual function
+};
+
+class USDToINR : public CurrencyConverter {
+    double rate = 83.2;
+    
+public:
+    void convert(double amount) override {
+        cout << amount << " USD = " << (amount * rate) << " INR" << endl;
+    }
+};
+
+class EURToINR : public CurrencyConverter {
+    double rate = 90.5;
+public:
+    void convert(double amount) override {
+        cout << amount << " EUR = " << (amount * rate) << " INR" << endl;
+    }
+};
+
+class GBPToINR : public CurrencyConverter {
+    double rate = 104.3;
+public:
+    void convert(double amount) override {
+        cout << amount << " GBP = " << (amount * rate) << " INR" << endl;
+    }
+};
+
+int main() {
+    CurrencyConverter* converter; // Base class pointer
+    int choice;
+    double amount;
+
+  do {
+      cout << "\n==============================\n";
+      cout << "      Currency Converter\n";
+      cout << "==============================\n";
+        
+  cout << "1. USD to INR\n";
+      cout << "2. EUR to INR\n";
+        cout << "3. GBP to INR\n";
+        cout << "4. Exit\n";
+
+  cout << "Enter choice: ";
+        cin >> choice;
+
+  cout << "Enter amount: ";
+        cin >> amount;
+
+  if (choice == 1) {
+            USDToINR obj;
+            converter = &obj;
+            converter->convert(amount);
+        } 
+        else if (choice == 2) {
+            EURToINR obj;
+            converter = &obj;
+            converter->convert(amount);
+        } 
+        else if (choice == 3) {
+            GBPToINR obj;
+            converter = &obj;
+            converter->convert(amount);
+        } 
+        else if (choice == 4) {
+            cout << "\nThank you for using the converter! \n";
+            break; // Exit the loop
+        }
+        else {
+            cout << " Invalid choice! Please try again.\n";
+        }
+        
+
+} while (true); 
+
+  return 0;
+}
