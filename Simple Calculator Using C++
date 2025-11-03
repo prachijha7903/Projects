@@ -1,0 +1,49 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int choice, a, b;
+
+  do {
+        cout << "\nHere you have options:\n";
+        cout << "1. Add\n2. Subtract\n3. Multiply\n4. Divide\n5. Exit\n";
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+  // If user wants to exit, break immediately
+        if (choice == 5) {
+            cout << "Exiting the program..." << endl;
+            break;
+        }
+
+  // For other choices, take input for numbers
+        cout << "Enter 1st number: ";
+        cin >> a;
+        cout << "Enter 2nd number: ";
+        cin >> b;
+
+  // Perform operation based on user choice
+        switch (choice) {
+            case 1:
+                cout << "Result: " << a + b << endl;
+                break;
+            case 2:
+                cout << "Result: " << a - b << endl;
+                break;
+            case 3:
+                cout << "Result: " << a * b << endl;
+                break;
+            case 4:
+                if (b == 0)
+                    cout << "Error: Division by zero not allowed!" << endl;
+                else
+                    cout << "Result: " << a / b << endl;
+                break;
+            default:
+                cout << "Invalid choice! Please try again." << endl;
+        }
+
+  } while (true);
+
+   return 0;
+}
