@@ -1,0 +1,35 @@
+#include <iostream>
+#include <map>
+using namespace std;
+
+int main() {
+    map<string, long long> phoneBook;
+    int choice;
+
+    do {
+        cout << "\n--- Telephone Directory Menu ---\n";
+        cout << "1. Add Contact\n";
+        cout << "2. Search Contact\n";
+        cout << "3. Display All Contacts\n";
+        cout << "4. Delete Contact\n";
+        cout << "5. Exit\n";
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        if (choice == 1) {
+            string name;
+            long long number;
+
+            cout << "Enter name: ";
+            cin >> name;
+            cout << "Enter phone number: ";
+            cin >> number;
+
+            phoneBook[name] = number;
+            cout << "Contact added successfully!\n";
+        }
+
+        else if (choice == 2) {
+            string name;
+            cout << "Enter name to search: ";
+            cin >> name;
